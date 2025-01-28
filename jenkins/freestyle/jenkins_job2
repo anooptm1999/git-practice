@@ -1,4 +1,4 @@
 #!/bin/bash
 name=$1 #parameter passing 
 sub=$2
-echo -e "my name is "$name"\n my fav subject is "$sub""
+echo -e "my name is $name \n my fav subject is $sub" $name $sub
