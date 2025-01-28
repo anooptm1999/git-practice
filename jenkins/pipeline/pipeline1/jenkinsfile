@@ -1,9 +1,9 @@
 pipeline {
-agent any
-stages{
-stage('memory details'){
-steps{
-sh free -h
+agent any 
+stages {
+stage('process running') {
+steps {
+sh 'ps -eaf|head'
 }
 }
 }
