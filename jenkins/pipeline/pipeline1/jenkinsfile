@@ -1,0 +1,10 @@
+pipeline {
+agent any
+stages{
+stage('memory details'){
+steps{
+free -h
+}
+}
+}
+}
