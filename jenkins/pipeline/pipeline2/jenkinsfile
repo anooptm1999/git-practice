@@ -1,0 +1,26 @@
+pipeline {
+agent any 
+stages {
+stage('memory utilization') {
+steps {
+sh 'free -h'
+}
+}
+stage('total disk usage') {
+steps {
+sh 'du -sch *'
+}
+}
+stage('list of cpu') {
+steps {
+sh 'lscpu'
+}
+}
+stage('om namaha shivaya') {
+steps {
+echo -e "namha parvathi patayeh\hara hara mahadev"
+}
+}
+}
+}
+ 
