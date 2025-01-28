@@ -1,3 +1,3 @@
 #!/bin/bash
-echo "testing in jenkins"
+echo "testing in jenkins" #used poll scm && build periodically
 
