@@ -18,7 +18,7 @@ sh 'lscpu'
 }
 stage('om namaha shivaya') {
 steps {
-echo -e "namha parvathi patayeh\nhara hara mahadev"
+echo -e "'/namha parvathi pataye \n hara hara mahadev'/"
 }
 }
 }
