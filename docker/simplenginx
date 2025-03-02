@@ -1,0 +1,8 @@
+# Use official Nginx image
+FROM nginx:alpine
+
+# Copy custom HTML content to the server's web directory
+COPY ./html /usr/share/nginx/html
+
+# Expose the app on port 80
+EXPOSE 80
