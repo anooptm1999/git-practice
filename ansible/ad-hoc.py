@@ -24,3 +24,7 @@ ansible localhost -m ping/ ansible localhost -m setup
 #ad-hoc cmd using arguement
 ansible localhost -a "yum install ngnix -y"
 # here the package is installing through arguement only# here the package is installing through arguement only
+
+
+#to see the history of the cmd we can use -vvv
+#eg: ansible localhost -m yum -a "name=httpd state=present" -vvv shows how the file config works entire backend process will be showcased
