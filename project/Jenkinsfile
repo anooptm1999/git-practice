@@ -29,5 +29,12 @@ pipeline {
         }
       }
     }
+
+    stage('Build & Tag Docker Image') {
+      steps {
+        // Docker build and tag command
+        sh 'docker build -t project1 .'
+      }
+    }
   }
 }
