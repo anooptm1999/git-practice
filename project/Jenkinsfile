@@ -13,12 +13,21 @@ pipeline {
       }
     }
 
-    stage('Change Directory') {
+    stage('Verify POM') {
       steps {
-        dir('subdirectory-name') {  // Change to the directory where the pom.xml is located
-          sh 'mvn compile'
-          sh 'mvn clean install'
-        }
+        sh 'ls -l'  // List directory contents to verify pom.xml is present
+      }
+    }
+
+    stage('Compile') {
+      steps {
+        sh 'mvn compile'
+      }
+    }
+
+    stage('Build') {
+      steps {
+        sh 'mvn clean install'
       }
     }
   }
