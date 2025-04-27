@@ -13,16 +13,10 @@ pipeline {
       }
     }
 
-    stage('Verify POM') {
-      steps {
-        sh 'ls -l'  // List directory contents to verify pom.xml is present
-      }
-    }
-
     stage('Change Directory') {
       steps {
         // Change to the directory where the pom.xml is located
-        dir('subfolder-name') { // Replace with the actual subfolder name if needed
+        dir('project') {  // Adjust the folder name to match where your pom.xml is located
           sh 'mvn compile'
         }
       }
@@ -30,8 +24,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        // Again, change to the directory where the pom.xml is located, if needed
-        dir('subfolder-name') { 
+        dir('project') {
           sh 'mvn clean install'
         }
       }
