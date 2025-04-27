@@ -19,15 +19,21 @@ pipeline {
       }
     }
 
-    stage('Compile') {
+    stage('Change Directory') {
       steps {
-        sh 'mvn compile'
+        // Change to the directory where the pom.xml is located
+        dir('subfolder-name') { // Replace with the actual subfolder name if needed
+          sh 'mvn compile'
+        }
       }
     }
 
     stage('Build') {
       steps {
-        sh 'mvn clean install'
+        // Again, change to the directory where the pom.xml is located, if needed
+        dir('subfolder-name') { 
+          sh 'mvn clean install'
+        }
       }
     }
   }
