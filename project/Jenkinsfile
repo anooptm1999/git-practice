@@ -13,15 +13,21 @@ pipeline {
       }
     }
 
+    stage('Verify POM') {
+      steps {
+        sh 'ls -l'  // List directory contents to verify pom.xml is present
+      }
+    }
+
     stage('Compile') {
       steps {
-        sh 'mvn compile'  // Correct syntax for running Maven commands
+        sh 'mvn compile'
       }
     }
 
     stage('Build') {
       steps {
-        sh 'mvn clean install'  // Correct syntax for running Maven commands
+        sh 'mvn clean install'
       }
     }
   }
