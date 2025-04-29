@@ -6,6 +6,12 @@ pipeline {
     maven 'maven'
   }
   
+  environment {
+    JAVA_HOME = tool name: 'java-17', type: 'hudson.model.JDK'
+    MAVEN_HOME = tool name: 'maven', type: 'hudson.tasks.Maven$MavenInstallation'
+    PATH = "${env.JAVA_HOME}/bin:${env.MAVEN_HOME}/bin:${env.PATH}"
+  }
+
   stages {
     stage('Git Checkout') {
       steps {
@@ -15,8 +21,7 @@ pipeline {
 
     stage('Change Directory') {
       steps {
-        // Change to the directory where the pom.xml is located
-        dir('project') {  // Adjust the folder name to match where your pom.xml is located
+        dir('project') {
           sh 'mvn compile'
         }
       }
@@ -32,7 +37,6 @@ pipeline {
 
     stage('Build & Tag Docker Image') {
       steps {
-        // Docker build and tag command
         sh 'docker build -t project1 .'
       }
     }
