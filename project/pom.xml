@@ -30,7 +30,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- Provided servlet API (already available in the container) -->
+        <!-- Provided servlet API -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -38,7 +38,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- JSP support (optional) -->
+        <!-- Optional: JSP support -->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
@@ -58,20 +58,25 @@
                 </configuration>
             </plugin>
 
-            <!-- Spring Boot plugin, exclude repackage for WAR -->
+            <!-- Compiler plugin to define Java version explicitly -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <!-- Spring Boot plugin without repackage goal -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                        <configuration>
-                            <skip>true</skip> <!-- skip repackage for WAR -->
-                        </configuration>
-                    </execution>
-                </executions>
+                <version>2.4.4</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
             </plugin>
         </plugins>
     </build>
