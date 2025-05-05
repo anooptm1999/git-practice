@@ -1,0 +1,7 @@
+---
+- hosts: localhost #can use all if it contains any ssh agents
+  tasks:
+    - name: copy the file
+      copy:
+        src: /etc/ansible/test.sh
+        dest: /tmp
