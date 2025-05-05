@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  tasks:
+    - name: test the cron job
+      cron:
+        name: run the simple file
+        minute: "*"
+        hour: "*"
+        day: "*"
+        month: "*"
+        weekday: "*"
+        job: /etc/ansible/test.sh
