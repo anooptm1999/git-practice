@@ -1,1 +1,12 @@
-
+---
+- hosts: localhost
+  tasks:
+    - name: install nginx
+      apt:
+        name: nginx
+        state: present
+    - name: enable nginx
+      service:
+        name: nginx
+        state: started
+        enabled: true
