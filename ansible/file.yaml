@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  tasks:
+    - name: file creation in specific path
+      file:
+       path: /usr/newfile.sh
+       state: touch
+       mode: '0777'
+~                  
