@@ -1,9 +1,13 @@
 ---
 - hosts: localhost
   tasks:
-    - name: file creation in specific path
+    - name: file creation in specific path & changing the permission
       file:
        path: /usr/newfile.sh
        state: touch
        mode: '0777'
-~                  
+
+    - name: creation of folder
+      file:
+        path: /etc/ansible/abc
+        state: directory
