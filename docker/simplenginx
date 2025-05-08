@@ -1,5 +1,5 @@
 # Use official Nginx image
-FROM nginx:alpine
+FROM nginx
 
 # Copy custom HTML content to the server's web directory
 COPY ./html /usr/share/nginx/html
