@@ -16,7 +16,7 @@ pipeline {
     stage('Change Directory') {
       steps {
         // Change to the directory where the pom.xml is located
-        dir('project') { 
+        dir('bgmi-info') { 
           sh 'mvn compile'
         }
       }
@@ -24,7 +24,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        dir('project') {
+        dir('bgmi-info') {
           sh 'mvn clean install'
         }
       }
@@ -32,7 +32,7 @@ pipeline {
 
     stage('Build & Tag Docker Image') {
       steps {
-        dir('project') {
+        dir('bgmi-info') {
           // Ensure the WAR file exists in target/ directory
           sh 'docker build -t project1 -f Dockerfile .'
         }
