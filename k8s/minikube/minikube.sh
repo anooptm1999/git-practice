@@ -10,7 +10,7 @@ sudo apt-get install -y curl wget apt-transport-https ca-certificates gnupg lsb-
 sudo apt-get install -y docker.io
 sudo systemctl enable docker
 sudo systemctl start docker
-sudo usermod -aG docker $USER
+sudo usermod -aG docker ubuntu
 
 # Install kubectl
 #!/bin/bash
