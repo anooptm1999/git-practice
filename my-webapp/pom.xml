@@ -15,6 +15,7 @@
   </properties>
 
   <dependencies>
+    <!-- ✅ Needed for servlet classes -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
@@ -25,6 +26,7 @@
 
   <build>
     <plugins>
+      <!-- ✅ Compiler plugin with Java 17 support -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -33,6 +35,13 @@
           <source>17</source>
           <target>17</target>
         </configuration>
+      </plugin>
+
+      <!-- ✅ Add this to fix war plugin errors on Java 17 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.2</version> <!-- Latest stable version -->
       </plugin>
     </plugins>
   </build>
