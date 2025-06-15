@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+        stage('Docker Build & Run') {
+            steps {
+                sh 'docker build -t my-webapp -f .docker/Dockerfile .'
+                sh 'docker run -d --rm -p 8080:8080 --name my-webapp_container my-webapp'
+            }
+        }
+    }
+}
