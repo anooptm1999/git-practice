@@ -1,0 +1,34 @@
+#!/bin/bash
+
+set -e
+
+echo "🔄 Updating package index..."
+sudo apt update -y
+
+echo "📦 Installing Java (required for Jenkins)..."
+sudo apt install -y openjdk-17-jdk
+
+echo "🔑 Adding Jenkins repository key..."
+wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+
+echo "📁 Adding Jenkins apt repository..."
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+echo "🔄 Updating package index again..."
+sudo apt update -y
+
+echo "⬇️ Installing Jenkins..."
+sudo apt install -y jenkins
+
+echo "▶️ Starting Jenkins service..."
+sudo systemctl start jenkins
+sudo systemctl enable jenkins
+
+echo "✅ Jenkins installation complete!"
+echo "🌐 Access Jenkins at: http://<your-server-ip>:8080"
+
+echo "🔐 Initial admin password (save this!):"
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
