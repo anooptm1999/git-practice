@@ -8,3 +8,17 @@ if [ "$age" -ge 18 ]; then
 else
     echo "You're a minor."
 fi
+
+############################################
+#odd number
+#!/bin/bash
+
+for i in {1..50};do
+if (( i%2 == 0 )); then
+        continue
+else
+        echo $i
+fi
+done
+
+###############################################
