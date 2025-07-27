@@ -22,3 +22,13 @@ fi
 done
 
 ###############################################
+
+#!/bin/bash
+echo "even numbers from 50 to 100 are: "
+for i in {50..100}; do
+if (( i%2 == 0 )); then
+        echo $i
+else
+        continue
+fi
+done
