@@ -21,6 +21,7 @@ Region (e.g., us-east-1)
 
 Output format: json
 
+"before running this clean the cloudformation template if this name cluster alredy exists"
 
 Create EKS Cluster Using eksctl
 eksctl create cluster \
