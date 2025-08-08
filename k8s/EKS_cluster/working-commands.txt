@@ -34,7 +34,7 @@ eksctl-2048-cluster-nodegroup-*
 Create EKS Cluster Using eksctl
 eksctl create cluster \
 --name 2048-cluster \
---region us-east-1 \
+--region ap-south-1 \
 --nodegroup-name ubuntu-nodes \
 --node-type t3.medium \
 --nodes 2 \
