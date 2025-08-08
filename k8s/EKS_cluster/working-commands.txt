@@ -22,6 +22,14 @@ Region (e.g., us-east-1)
 Output format: json
 
 "before running this clean the cloudformation template if this name cluster alredy exists"
+. Go to CloudFormation Console -- in the region specified delete it 
+
+. Find and Delete These Stacks (if present)
+Look for stacks with names like:
+
+eksctl-2048-cluster-cluster
+
+eksctl-2048-cluster-nodegroup-*
 
 Create EKS Cluster Using eksctl
 eksctl create cluster \
