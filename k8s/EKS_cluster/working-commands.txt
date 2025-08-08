@@ -26,6 +26,9 @@ Output format: json
 
 . Find and Delete These Stacks (if present)
 Look for stacks with names like:
+1.eksctl-2048-cluster-cluster
+2.eksctl-2048-cluster-nodegroup-*
+
 
 eksctl-2048-cluster-cluster
 
