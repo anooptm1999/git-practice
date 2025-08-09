@@ -52,6 +52,6 @@ kubectl apply -f svc.yaml
 
 kubectl get svc game-2048-service
 
-
+kindly delete the cluster keeping bill in mind
 eksctl delete cluster --name 2048-cluster --region ap-south-1
 
