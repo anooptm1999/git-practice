@@ -1,5 +1,5 @@
 ######################################################################################
-Jenkins Master-Slave Configuration Steps
+                    Jenkins Master-Slave Configuration Steps
 
 STEP 1: spinup the 3 EC2/VM with pre-installed java (java-11, 17 or 21)
 STEP 2: check and confirm the java version with java --version
