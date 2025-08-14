@@ -88,7 +88,6 @@ manage jenkins...node...make a permanent agent...Remote root directory: /home/ub
 STEP 8: check whether your node is online through logs
 
 
-********************************************Run a Test Pipeline********************
 pipeline {
     agent { label 'dev' }
 
@@ -103,5 +102,6 @@ pipeline {
 }
 
 
+********************************************Run a Test Pipeline********************
 
 
