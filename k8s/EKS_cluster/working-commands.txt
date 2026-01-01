@@ -1,0 +1,57 @@
+Launch EC2 (Ubuntu)
+👉 When creating EC2:
+AMI: Ubuntu Server 22.04 LTS
+
+Instance Type: t3.medium
+
+Key Pair: Create or use existing
+
+Security Group: Allow ports 22 (SSH), 80, and 443
+
+
+Configure AWS CLI
+aws configure
+Enter:
+
+Access Key ID
+
+Secret Access Key
+
+Region (e.g., us-east-1)
+
+Output format: json
+
+"before running this clean the cloudformation template if this name cluster alredy exists"
+. Go to CloudFormation Console -- in the region specified delete it 
+
+. Find and Delete These Stacks (if present)
+Look for stacks with names like:
+1.eksctl-2048-cluster-cluster
+2.eksctl-2048-cluster-nodegroup-*
+
+
+eksctl-2048-cluster-cluster
+
+eksctl-2048-cluster-nodegroup-*
+
+Create EKS Cluster Using eksctl
+eksctl create cluster \
+--name 2048-cluster \
+--region ap-south-1 \
+--nodegroup-name ubuntu-nodes \
+--node-type t3.medium \
+--nodes 2 \
+--nodes-min 1 \
+--nodes-max 3 \
+--managed
+
+
+kubectl get nodes
+kubectl apply -f deployment.yaml
+kubectl apply -f svc.yaml
+
+kubectl get svc game-2048-service
+
+kindly delete the cluster keeping bill in mind
+eksctl delete cluster --name 2048-cluster --region ap-south-1
+

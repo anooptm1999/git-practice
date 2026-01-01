@@ -9,4 +9,4 @@ yum install jenkins -y #install jenkins package
 systemctl daemon-reload
 systemctl enable jenkins #which automatically start jenkins when the reboot happens
 systemctl start jenkins #start the jenkins 
-systemctl status jenkins #check status of jenkins
+systemctl status jenkins #check status of jenkins why this is not working

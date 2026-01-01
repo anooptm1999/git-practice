@@ -1,0 +1,18 @@
+# checking the simple script on label with slave nodes
+
+pipeline {
+    agent { label 'slave-2' } #{ label 'slave-1' } 
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('ip address checking') {
+            steps {
+                sh 'hostname -i'
+            }
+        }
+    }
+}
