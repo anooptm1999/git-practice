@@ -10,5 +10,5 @@ echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
 sudo apt update
 sudo apt install jenkins -y
 
-echo " chinging the jenkins service "
+echo " checking the jenkins service "
 sudo systemctl status jenkins 
