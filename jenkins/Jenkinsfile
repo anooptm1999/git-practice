@@ -1,0 +1,47 @@
+pipeline {
+    agent { label 'jfrog' }
+
+    tools {
+        maven 'mvn' #tool name must mach here
+    }
+
+    stages {
+        stage('Git Checkout Stage') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/tranju664/Sonar-Qube-war-example.git'
+            }
+        }
+
+        stage('Build Stage') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+    }
+
+    post {
+        success {
+            script {
+                def server = Artifactory.newServer(
+                  /*  url: 'http://13.201.99.226:8081/artifactory/',
+                    credentialsId: 'jfrog' */ #changes needed to be done here 
+                )
+
+                def rtMaven = Artifactory.newMavenBuild()
+
+                rtMaven.tool = 'mvn'   // 🔥 MUST MATCH TOOL NAME
+                rtMaven.deployer(
+                    server: server,
+                    releaseRepo: 'libs-release',
+                    snapshotRepo: 'libs-snapshot'
+                )
+
+                rtMaven.run(
+                    pom: 'pom.xml',
+                    goals: 'clean install'
+                )
+            }
+        }
+    }
+}
