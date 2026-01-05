@@ -30,7 +30,7 @@ pipeline {
 
                 def rtMaven = Artifactory.newMavenBuild()
 
-                rtMaven.tool = 'mvn'   // 🔥 MUST MATCH TOOL NAME
+                rtMaven.tool = 'mvn'  
                 rtMaven.deployer(
                     server: server,
                     releaseRepo: 'libs-release',
