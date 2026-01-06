@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'jfrog' }
+    agent { label 'jfrog' } #agent name must match here 
 
     tools {
         maven 'mvn' #tool name must mach here
